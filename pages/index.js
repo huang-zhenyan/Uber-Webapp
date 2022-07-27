@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import tw from "tailwind-styled-components"
-import Map from './components/map';
+import Map from './components/map'
+import Link from 'next/link'
 
 
 export default function Home() {
@@ -23,20 +24,25 @@ export default function Home() {
         </Header>
         {/* Action Buttons */}
         <ActionButtons>
+          <Link href="/search">
           <ActionButton>
-            <ActionButtonImage src = "https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_956,h_537/v1568070387/assets/b5/0a5191-836e-42bf-ad5d-6cb3100ec425/original/UberX.png" />
+            <ActionButtonImage src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_863,h_485/f_auto,q_auto/products/carousel/UberX.png" />
             Ride
           </ActionButton>
+          </Link>
           <ActionButton>
+          <ActionButtonImage src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_956,h_637/v1649231091/assets/2c/7fa194-c954-49b2-9c6d-a3b8601370f5/original/Uber_Moto_Orange_312x208_pixels_Mobile.png" />
             Wheels
           </ActionButton>
           <ActionButton>
+          <ActionButtonImage src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/calendar-icon.png" />
             Reserve
           </ActionButton>
-
         </ActionButtons>
-
         {/* Input Buttons*/}
+        <InputButton>
+          Where to?
+        </InputButton>
 
 
       </ActionItems>
@@ -70,13 +76,19 @@ const Name = tw.div`
 const UserImage = tw.img`
   h-12 w-12 rounded-full border border-gray-200 p-px
 `
+
 const ActionButtons = tw.div`
   flex
 `
 
 const ActionButton = tw.div`
-  bg-gray-200 flex-1 m-1 h-32
+  flex bg-gray-200 flex-1 m-2 h-32 items-center flex-col justify-center rounded-lg transform hover:scale-105 transition text-xl
 `
+
 const ActionButtonImage = tw.img`
   h-3/5
+`
+
+const InputButton = tw.div`
+  h-20 bg-gray-200 text-2xl p-4 flex items-center mt-8 m-2
 `

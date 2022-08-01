@@ -2,8 +2,13 @@ import { Input } from 'postcss'
 import React from 'react'
 import tw from "tailwind-styled-components"
 import Link from 'next/link'
+import { useState } from 'react'
 
 const Search = () => {
+
+  const [ pickup, setPickup ] = useState("");
+  const [ dropoff, setDropoff ] = useState("");
+
   return (
   <Wrapper>
     { /*Button Container */ }
@@ -21,8 +26,16 @@ const Search = () => {
         <Square src="https://static.vecteezy.com/system/resources/previews/001/209/957/non_2x/square-png.png"/>
       </FromToIcons>
       <InputBoxes>
-        <Inputs placeholder="Enter pickup location"/>
-        <Inputs placeholder="Where to?"/>
+        <Inputs 
+          placeholder="Enter pickup location"
+          value = {pickup}
+          onChange = {(e)=> setPickup(e.target.value)}
+          />
+        <Inputs 
+          placeholder="Where to?"
+          value = {dropoff}
+          onChange = {(e)=> setDropoff(e.target.value)}
+          />
       </InputBoxes>
       <PlusIcon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/500px-Plus_symbol.svg.png"/>
 
@@ -34,9 +47,17 @@ const Search = () => {
     </SavedPlaces>
 
     { /* Confirm Location */ }
+    <Link href={{
+      pathname:"/confirm",
+      query: {
+        pickup: pickup,
+        dropoff: dropoff
+      }
+    }}>
     <ConfirmButtonContainer>
       Confirm Locations
     </ConfirmButtonContainer>
+    </Link>
 
   </Wrapper>
   )

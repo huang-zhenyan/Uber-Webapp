@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import tw from 'tailwind-styled-components'
-import { carList } from '../data/carList'
+import { wheelList } from '../data/wheelList'
 
 
 
-const RideSelector = ( {pickupCoordinates, dropoffCoordinates} ) => {
+const WheelSelector = ( {pickupCoordinates, dropoffCoordinates} ) => {
     const [rideDuration, setRideDuration] = useState(0)
     // get ride duration from mapbox api
     // needs pickup coordinates, dropoff coordinates
@@ -26,26 +26,26 @@ const RideSelector = ( {pickupCoordinates, dropoffCoordinates} ) => {
   return (
     <Wrapper>
         <Title>Choose a ride, or swipe up for more</Title>
-        <CarList>
-            { carList.map((car, index) => (
-                <Car key={index}>
-                <CarImage src={car.imgUrl} />
-                <CarDetails>
-                    <Service>{car.service}</Service>
+        <WheelList>
+            { wheelList.map((wheel, index) => (
+                <Wheel key={index}>
+                <WheelImage src={wheel.imgUrl} />
+                <WheelDetails>
+                    <Service>{wheel.service}</Service>
                     <Time>5 min away</Time>
-                </CarDetails>
+                </WheelDetails>
                 <Price>
-                    {'$' + (rideDuration*car.multiplier).toFixed(2)}
+                    {'$' + (rideDuration*wheel.multiplier).toFixed(2)}
                 </Price>
-                </Car>
+                </Wheel>
             )) }
-        </CarList>
+        </WheelList>
         
     </Wrapper>
   )
 }
 
-export default RideSelector
+export default WheelSelector
 
 const Wrapper = tw.div`
     flex-1 overflow-y-scroll flex flex-col
@@ -55,19 +55,19 @@ const Title = tw.div`
     text-gray-500 text-center text-xs py-2 border-b
 `
 
-const CarList = tw.div`
+const WheelList = tw.div`
     overflow-y-scroll
 `
 
-const Car = tw.div`
+const Wheel = tw.div`
     flex p-4 items-center border border-gray cursor-pointer hover:scale-105 transition mx-10 my-2   
 `
 
-const CarImage = tw.img`
+const WheelImage = tw.img`
     h-14 mr-4
 `
 
-const CarDetails = tw.div`
+const WheelDetails = tw.div`
     flex-1
 `
 

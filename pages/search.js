@@ -3,11 +3,14 @@ import React from 'react'
 import tw from "tailwind-styled-components"
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Search = () => {
 
+  const router = useRouter()
   const [ pickup, setPickup ] = useState("");
   const [ dropoff, setDropoff ] = useState("");
+  const { ridetype } = router.query
 
   return (
   <Wrapper>
@@ -48,12 +51,13 @@ const Search = () => {
 
     { /* Confirm Location */ }
     <Link href={{
-      pathname:"/confirm",
-      query: {
-        pickup: pickup,
-        dropoff: dropoff
-      }
-    }}>
+            pathname: "/confirm",
+            query: {
+              pickup: pickup,
+              dropoff: dropoff,
+              ridetype: ridetype
+            }
+          }}>
     <ConfirmButtonContainer>
       Confirm Locations
     </ConfirmButtonContainer>

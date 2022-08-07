@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
 import tw from 'tailwind-styled-components'
 import Map from "./components/Map"
@@ -11,9 +12,6 @@ const confirm = () => {
 
     const router = useRouter()
     const { pickup, dropoff, ridetype } = router.query
-
-
-    
 
     const [ pickupCoordinates, setPickupCoordinates ] = useState([0, 0])
     const [ dropoffCoordinates, setDropCoordinates ] = useState([0, 0])
@@ -72,10 +70,13 @@ if (ridetype == "car") {
                 />
                 {/*Confirm Button */}
                 <ConfirmButtonContainer>
+                    <Link href = "/progress">
                     <ConfirmButton>
                         Confirm UberX
                     </ConfirmButton>
+                    </Link>
                 </ConfirmButtonContainer>
+                
     
             </RideContainer>
         </Wrapper>
@@ -105,10 +106,13 @@ if (ridetype == "car") {
                 />
                 {/*Confirm Button */}
                 <ConfirmButtonContainer>
+                <Link href="/progress">
                     <ConfirmButton>
                         Confirm Wheels
                     </ConfirmButton>
+                    </Link>
                 </ConfirmButtonContainer>
+                
     
             </WheelContainer>
         </Wrapper>

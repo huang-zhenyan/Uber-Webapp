@@ -67,11 +67,15 @@ export default function Home() {
           </ActionButton>
           </Link>
 
+          <Link href="/reserve">
           <ActionButton>
           <ActionButtonImage src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/calendar-icon.png" />
             Reserve
           </ActionButton>
+          </Link>
+          
         </ActionButtons>
+
         {/* Input Buttons*/}
         <InputButton>
           Where to?

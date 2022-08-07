@@ -21,7 +21,6 @@ const WheelSelector = ( {pickupCoordinates, dropoffCoordinates} ) => {
             setRideDuration(data.routes[0].duration / 100)
         }).catch((e) => console.log(e))
     }, [pickupCoordinates, dropoffCoordinates])
-    
 
   return (
     <Wrapper>
@@ -29,7 +28,7 @@ const WheelSelector = ( {pickupCoordinates, dropoffCoordinates} ) => {
         <WheelList>
             { wheelList.map((wheel, index) => (
                 <Wheel key={index}>
-                <WheelImage src={wheel.imgUrl} />
+                <WheelImage src={wheel.imgUrl}/>
                 <WheelDetails>
                     <Service>{wheel.service}</Service>
                     <Time>5 min away</Time>
@@ -64,7 +63,7 @@ const Wheel = tw.div`
 `
 
 const WheelImage = tw.img`
-    h-14 mr-4
+    h-14 mr-3
 `
 
 const WheelDetails = tw.div`
@@ -72,7 +71,7 @@ const WheelDetails = tw.div`
 `
 
 const Service = tw.div`
-    font-medium 
+    font-medium
 `
 
 const Time = tw.div`
